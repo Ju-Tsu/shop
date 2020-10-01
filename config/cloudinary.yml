@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: dn9jcidms
+  api_key: '193432657873286'
+  api_secret: 86CZBC9jEF8xMlM-6LEoiVqkhk8
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: dn9jcidms
+  api_key: '193432657873286'
+  api_secret: 86CZBC9jEF8xMlM-6LEoiVqkhk8
+  enhance_image_tag: true
+  static_file_support: true
+test:
+  cloud_name: dn9jcidms
+  api_key: '193432657873286'
+  api_secret: 86CZBC9jEF8xMlM-6LEoiVqkhk8
+  enhance_image_tag: true
+  static_file_support: false

@@ -1,5 +1,5 @@
 class HomeController <ApplicationController
    def index
-   	@name = 'Иван'
+     @items = Item.all.limit(6)
    end
  end

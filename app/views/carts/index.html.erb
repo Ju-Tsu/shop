@@ -1,0 +1,27 @@
+<div class="container mb-5">
+  <% if current_cart.leght > 0 %>
+   <h1>Товары в корзине:</h1>
+   <% @items_in_cart.each do |item| %>
+      <div class="card mb-3">
+        <div class="row no-gutters">
+          <div class="col-md-3">
+            <%= image_tag item.image.url, class: "card-img-top" %>
+          </div>
+          <div class="col-md-9">
+            <div class="card-body">
+              <h5><%= item.title %></h5>
+              <p class="card-text"><%= item.description %></p>
+              <div class="btn-group">
+                <%= link_to('-', delete_from_cart_item_path(item), method: :delete, class: 'btn btn-dark mr-auto' ) %>
+                <button class="btn" disabled><%= current_cart.count(item.id) %></button>
+                <%= link_to('+', add_to_cart_item_path(item), method: :post, class: 'btn btn-dark mr-auto' ) %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+   <% end %>
+  <% else %>
+   <h1>Корзина пуста</h1>
+  <% end %>
+</div>

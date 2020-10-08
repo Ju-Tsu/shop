@@ -1,5 +1,5 @@
 <div class="container mb-5">
-  <% if current_cart.leght > 0 %>
+  <% if current_cart.length > 0 %>
    <h1>Товары в корзине:</h1>
    <% @items_in_cart.each do |item| %>
       <div class="card mb-3">
@@ -21,6 +21,24 @@
         </div>
       </div>
    <% end %>
+      <%= form_with model: @order, class: " col-xs-12 col-md-6 m-auto" do |f| %>
+        <h3>Данные для заказа</h3>
+        <div class="form-group">
+          <label for="name">Имя:</label>
+          <%= f.text_field :name, id: 'name', class: 'form-control', required: true %>
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <%= f.text_field :email, id: 'name', type: 'email', class: 'form-control', required: true %>
+        </div>
+        <div class="form-group">
+          <label for="phone">Телефон:</label>
+          <%= f.text_field :phone, id: 'phone', type: 'phone', class: 'form-control', required: true %>
+        </div>
+        <div class="text-center">
+          <%= f.submit "Оформить заказ", class: "btn btn-primary" %>
+        </div>
+      <% end %>
   <% else %>
    <h1>Корзина пуста</h1>
   <% end %>

@@ -14,9 +14,13 @@ class ItemsController < ApplicationController
     add_item_to_cart(@item.id)
     redirect_back fallback_location: items_url
   end
+
   def delete_from_cart
     @item = Item.find(params[:id])
-    delete_item_from_cart(@item.id)
+    cart = cookies[:cart].split(',')
+    item_index = cart.index(params[:id])
+    cart.delete_at(item_index)
+    cookies[:cart] = cart.join(',')
     redirect_back fallback_location: carts_path
   end
-end
+  end
